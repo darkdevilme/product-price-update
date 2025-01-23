@@ -1,0 +1,37 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "ff9ab1b52b28830f9d2340cd8fa898bb"
+application_url = "https://gold-price-update.onrender.com"
+embedded = true
+name = "gold price update"
+handle = "gold-price-update-7"
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "srini-framework.myshopify.com"
+include_config_on_deploy = true
+
+[webhooks]
+api_version = "2024-10"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://gold-price-update.onrender.com/auth/callback",
+  "https://gold-price-update.onrender.com/auth/shopify/callback",
+  "https://gold-price-update.onrender.com/api/auth/callback"
+]
+
+[pos]
+embedded = true
